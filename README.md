@@ -1,9 +1,9 @@
 # Wardrive Data Visualization
 
-Eine Webanwendung zur Visualisierung von Wardrive-Daten des ESP32Marauder auf interaktiven Karten. 
-Die Anwendung ermöglicht das Hochladen von Wardrive-Logdateien, Speicherung in einer PostgreSQL/PostGIS-Datenbank und interaktive Visualisierung der WLAN-Access-Points auf einer Karte.
+Eine Webanwendung zur Visualisierung von Wardrive-Daten des [ESP32Marauder](https://github.com/justcallmekoko/ESP32Marauder) auf interaktiven Karten. <br>
+Die Anwendung ermöglicht das Hochladen von Wardrive-Logdateien, Speicherung in einer PostgreSQL/PostGIS-Datenbank und interaktive Visualisierung der WLAN-Access-Points auf einer Karte.<br><br>
 
-![Screenshot]([https://github.com/bmetallica/WardriveVisualization/blob/main/utils/wd.png)
+![Screenshot](https://github.com/bmetallica/WardriveVisualization/blob/main/wd.png)
 
 ## Funktionen
 
