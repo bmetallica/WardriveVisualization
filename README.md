@@ -90,7 +90,7 @@ GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO wardrive_user;
 ``` bash
 # Projekt klonen oder herunterladen
 git clone https://github.com/bmetallica/WardriveVisualization.git
-cd wardrive-visualization
+cd WardriveVisualization
 
 # Abhängigkeiten installieren
 npm install
