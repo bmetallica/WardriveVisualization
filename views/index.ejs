@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wardrive Data Visualization</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Wardrive Data Visualization</h1>
+            <p>Laden Sie Wardrive-Logdateien hoch und visualisieren Sie die Daten auf der Karte</p>
+        </header>
+
+        <div class="content">
+            <div class="upload-section">
+                <h2>Datei hochladen</h2>
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="file" name="wardriveFile" accept=".log" required>
+                    <button type="submit">Hochladen</button>
+                </form>
+                
+                <div style="margin-top: 20px; padding: 10px; background: #111; border-radius: 3px;">
+                    <h3>Info</h3>
+                    <p>Akzeptierte Formate: .log-Dateien im WigleWifi-Format</p>
+                    <p>Unterstützte Auth-Modi:</p>
+                    <ul style="margin-left: 20px;">
+                        <li><span style="color: orange;">●</span> WPA2_PSK</li>
+                        <li><span style="color: red;">●</span> WPA2_WPA3_PSK</li>
+                        <li><span style="color: green;">●</span> OPEN</li>
+                        <li><span style="color: gray;">●</span> Andere</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="data-section">
+                <h2>Verfügbare Datensätze</h2>
+                <% if (files && files.length > 0) { %>
+                    <form id="datasetForm">
+                        <select name="dataset" id="datasetSelect">
+                            <% files.forEach(file => { %>
+                                <option value="<%= file.table_name %>"><%= file.filename %> (<%= new Date(file.upload_time).toLocaleDateString('de-DE') %>)</option>
+                            <% }); %>
+                        </select>
+                        <button type="button" id="loadDataBtn">Daten laden</button>
+                    </form>
+                    
+                    
+                    <div id="mapContainer">
+                        <div id="map"></div>
+                    </div>
+                <% } else { %>
+                    <div style="padding: 20px; text-align: center; background: #111; border-radius: 3px;">
+                        <p>Keine Datensätze verfügbar. Laden Sie eine Wardrive-Logdatei hoch.</p>
+                        <p style="margin-top: 10px; font-size: 3em;">📡</p>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+
+        <footer style="margin-top: 30px; padding: 15px; text-align: center; border-top: 1px solid #333;">
+            <p>Wardrive Data Visualization | Built with Node.js, Express, PostgreSQL & Leaflet | by bmetallica.de</p>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/js/map.js"></script>
+</body>
+</html>
